@@ -1,1 +1,9 @@
-<h4>Test heading</h4>
+<div class="main-wrapper">
+  <div class="item-wrapper">
+    <h4>Welcome to dashboard-system app!</h4>
+    <div class="buttons-wrapper">
+      <% link_to "Sign in", new_user_session_path%>
+      <% link_to "Sign up", new_user_registration_path, :class => "btn btn-default" %>
+    </div>
+  </div>
+</div>
