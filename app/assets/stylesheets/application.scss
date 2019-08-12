@@ -18,7 +18,11 @@
 html,
 body {
   height: 100%;
+  background: rgb(2,0,36);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
+
+/* wrappers ----------> */
 
 .main-wrapper {
   display: flex;
@@ -39,7 +43,25 @@ body {
   }
 }
 
-.login-btn {
+.form-wrapper {
+  width: 400px;
+  padding: 3em;
+  border-radius: 5px;
+  @media (max-width: 599px) {
+    width: 90%;
+    padding: 2em;
+  }
+}
+
+
+/*buttons, inputs --------> */
+
+.form-control {
+  border-radius: 23px;
+  margin-top: 25px;
+}
+
+.main-btn {
   border: none;
   border-radius: 23px;
   box-shadow: 0 6px 10px 0 rgba(0,0,0,.1);
@@ -56,7 +78,12 @@ body {
   color: #fff;
 }
 
-.sign-in-btn{
+.confirm-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.rose-btn{
   background-color: #ea4a72;
   margin-right: 30px;
   @media (max-width: 599px) {
@@ -65,23 +92,32 @@ body {
   }
 }
 
-.sign-in-btn:hover {
+.rose-btn:hover {
   background-color: #e41b4d;
   color: #fff;
 }
 
-.sign-up-btn {
+.green-btn {
   background-color: #2eb82e;
 }
 
-.sign-up-btn:hover {
+.green-btn:hover {
   background-color: #248f24;
   color: #fff;
 }
 
 
-h1 {
+.login-header {
   text-align: center;
+  font-weight: 600;
+  color: #fff
 }
+
+
+/*----------------> errors */
+.field_with_errors {
+  display: inline;
+}
+
 
 
