@@ -14,3 +14,74 @@
  *= require_self
  */
 @import "bootstrap";
+
+html,
+body {
+  height: 100%;
+}
+
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  .item-wrapper {
+    padding: 1.5em;
+  }
+  .buttons-wrapper {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    @media (max-width: 599px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+.login-btn {
+  border: none;
+  border-radius: 23px;
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,.1);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 28px;
+  min-width: 180px;
+  outline: none;
+  padding: 9px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.sign-in-btn{
+  background-color: #ea4a72;
+  margin-right: 30px;
+  @media (max-width: 599px) {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.sign-in-btn:hover {
+  background-color: #e41b4d;
+  color: #fff;
+}
+
+.sign-up-btn {
+  background-color: #2eb82e;
+}
+
+.sign-up-btn:hover {
+  background-color: #248f24;
+  color: #fff;
+}
+
+
+h1 {
+  text-align: center;
+}
+
+
