@@ -61,13 +61,12 @@ body {
   }
 }
 
-/*
 .dashboards-wrapper {
+  width: 400px;
   @media (max-width: 599px) {
-    width: 90%;
+    width: unset;
   }
 }
-*/
 
 
 /*buttons, inputs --------> */
@@ -99,8 +98,11 @@ body {
   margin-top: 10px;
 }
 
-.rose-btn{
+.rose-btn , .delete-btn {
   background-color: #ea4a72;
+}
+
+.rose-btn {
   margin-right: 30px;
   @media (max-width: 599px) {
     margin-right: 0;
@@ -108,7 +110,7 @@ body {
   }
 }
 
-.rose-btn:hover {
+.rose-btn:hover, .delete-btn:hover {
   background-color: #e41b4d;
   color: #fff;
 }

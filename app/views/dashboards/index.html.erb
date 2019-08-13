@@ -1,11 +1,6 @@
 <div class="wrapper">
   <div class="item-wrapper">
     <h2 class="welcome-header login-header">Your dashboards:</h2>
-    <% if @dashboards.empty? %>
-      <div class="no-dashboard-wrapper">
-        <h4 class="login-header">You have no dashboards yet.</h4>
-      </div>
-    <% end %>
     <% if @dashboards.any? %>
       <div class="dashboards-wrapper">
         <% @dashboards.each_with_index do |item, index| %>
@@ -18,15 +13,18 @@
               </div>
               <hr>
               <div class="">
-                <%=link_to "Delete", dashboard_path(item["id"]), :class => "btn main-btn rose-btn",   :method => :delete %>
+                <%=link_to "Delete", dashboard_path(item["id"]), :class => "btn main-btn delete-btn",   :method => :delete %>
               </div>
             </div>
           </div>
         <% end %>
     <% end %>
-    </div>
     <div>
+      <% if @dashboards.empty? %>
+        <h4  style="margin-top: 150px" class="login-header">You have no dashboards yet.</h4>
+      <% end %>
       <%=link_to "Add new dashboard", new_dashboard_path, :class => "btn main-btn green-btn confirm-btn" %>
+    </div>
     </div>
   </div>
 </div>
