@@ -15,6 +15,8 @@ class DashboardsController < ApplicationController
     @dashboard = current_user.dashboards.build(dashboard_params)
     if @dashboard.save
       redirect_to dashboards_path
+    else
+      render 'new'
     end
   end
 
@@ -25,8 +27,11 @@ class DashboardsController < ApplicationController
   def update
     @dashboard = Dashboard.find(params[:id])
     @dashboard.update(dashboard_params)
-    redirect_to dashboard_path(@dashboard.id)
-  end
+    if @dashboard.save
+      redirect_to dashboards_path
+    else
+      render 'edit'
+    end  end
 
   def destroy
     @dashboard = Dashboard.find(params[:id])
