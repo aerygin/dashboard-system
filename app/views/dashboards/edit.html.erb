@@ -1,0 +1,16 @@
+<div class="main-wrapper">
+  <div class="form-wrapper">
+    <h2 class="login-header">Create dashboard</h2>
+    <%= form_for :dashboard, url: dashboard_path(@dashboard) , method: :patch do |f| %>
+      <p>
+        <%=f.text_field :title, placeholder: :title, :class => "form-control" %>
+      </p>
+      <p>
+        <%=f.text_area :body, rows: 20 ,placeholder: :body ,:class => "form-control"%>
+      </p>
+      <p>
+        <%= f.submit "Save", :class => "main-btn green-btn confirm-btn" %>
+      </p>
+    <% end %>
+  </div>
+</div>

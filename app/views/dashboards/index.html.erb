@@ -1,5 +1,32 @@
-<div class="main-wrapper">
-  <div class="card">
-  <h4>Welcome, <%=current_user.email%>!</h4>
+<div class="wrapper">
+  <div class="item-wrapper">
+    <h2 class="welcome-header login-header">Your dashboards:</h2>
+    <% if @dashboards.empty? %>
+      <div class="no-dashboard-wrapper">
+        <h4 class="login-header">You have no dashboards yet.</h4>
+      </div>
+    <% end %>
+    <% if @dashboards.any? %>
+      <div class="dashboards-wrapper">
+        <% @dashboards.each_with_index do |item, index| %>
+          <div class="panel panel-success">
+            <h2 class="panel-heading"><%= index + 1 %>. <%= item.title %></h2>
+            <div class="panel-body">
+              <div class="panel-content"><%= truncate(item.body, length: 35) %>
+                <span class="show-dashboard"></span>
+                <%=link_to (fa_icon "arrow-right", :class => "icon"), dashboard_path(item["id"])%>
+              </div>
+              <hr>
+              <div class="">
+                <%=link_to "Delete", dashboard_path(item["id"]), :class => "btn main-btn rose-btn",   :method => :delete %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+    <% end %>
+    </div>
+    <div>
+      <%=link_to "Add new dashboard", new_dashboard_path, :class => "btn main-btn green-btn confirm-btn" %>
+    </div>
   </div>
 </div>

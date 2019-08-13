@@ -14,6 +14,8 @@
  *= require_self
  */
 @import "bootstrap";
+@import "font-awesome";
+
 
 html,
 body {
@@ -29,9 +31,6 @@ body {
   justify-content: center;
   height: 100%;
   align-items: center;
-  .item-wrapper {
-    padding: 1.5em;
-  }
   .buttons-wrapper {
     margin-top: 50px;
     display: flex;
@@ -43,6 +42,15 @@ body {
   }
 }
 
+.item-wrapper {
+  padding: 1em;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .form-wrapper {
   width: 400px;
   padding: 3em;
@@ -52,6 +60,14 @@ body {
     padding: 2em;
   }
 }
+
+/*
+.dashboards-wrapper {
+  @media (max-width: 599px) {
+    width: 90%;
+  }
+}
+*/
 
 
 /*buttons, inputs --------> */
@@ -106,11 +122,15 @@ body {
   color: #fff;
 }
 
-
-.login-header {
+/* headers -------_>  */
+.login-header, h5 {
   text-align: center;
   font-weight: 600;
   color: #fff
+}
+.welcome-header {
+ word-break: break-word;
+  margin: 20px 0 ;
 }
 
 
@@ -119,5 +139,26 @@ body {
   display: inline;
 }
 
+.icon, .icon:hover {
+  color: black;
+}
 
+/*dashboard -----------> */
+
+.panel {
+  text-align: center;
+  background-color: #ffffff;
+  margin: 10px 0;
+  padding: 1em;
+  border-radius: 23px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .1);
+
+  h2 {
+    font-size: 30px;
+  }
+  .panel-content {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+}
 

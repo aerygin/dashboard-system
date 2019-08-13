@@ -4,7 +4,7 @@ class DashboardsController < ApplicationController
   end
 
   def show
-
+    @dashboard = Dashboard.find(params[:id])
   end
 
   def new
@@ -16,6 +16,22 @@ class DashboardsController < ApplicationController
     if @dashboard.save
       redirect_to dashboards_path
     end
+  end
+
+  def edit
+    @dashboard = Dashboard.find(params[:id])
+  end
+
+  def update
+    @dashboard = Dashboard.find(params[:id])
+    @dashboard.update(dashboard_params)
+    redirect_to dashboard_path(@dashboard.id)
+  end
+
+  def destroy
+    @dashboard = Dashboard.find(params[:id])
+    @dashboard.destroy
+    redirect_to dashboards_path
   end
 
   private
