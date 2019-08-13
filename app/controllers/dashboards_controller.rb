@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
   def index
-    @dashboards = Dashboard.where(user_id: current_user.id)
+    @dashboards = Dashboard.where(user_id: current_user.id).order(:sort)
   end
 
   def show
@@ -28,7 +28,7 @@ class DashboardsController < ApplicationController
     @dashboard = Dashboard.find(params[:id])
     @dashboard.update(dashboard_params)
     if @dashboard.save
-      redirect_to dashboards_path
+      redirect_to dashboard_path
     else
       render 'edit'
     end  end

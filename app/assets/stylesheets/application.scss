@@ -68,6 +68,23 @@ body {
   }
 }
 
+.dashboard {
+  background-color: #fff;
+  display: -webkit-box;
+  display: flex;
+  width: 600px;
+  height: 600px;
+  border-radius: 23px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 599px) {
+    width: 90%;
+  }
+}
+
 
 /*buttons, inputs --------> */
 
@@ -158,9 +175,11 @@ body {
   h2 {
     font-size: 30px;
   }
-  .panel-content {
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
+}
+
+.panel-content {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 

@@ -7,6 +7,10 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'devise'
 gem 'font-awesome-rails'
+gem 'chartkick'
+gem 'jquery-ui-rails'
+gem 'rails_sortable'
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

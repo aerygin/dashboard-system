@@ -1,10 +1,22 @@
-<h4>
-  <%=@dashboard.title %>
-</h4><h4>
-  <%=@dashboard.body %>
-</h4>
-
-
-<div>
-  <%=link_to "Edit", edit_dashboard_path(@dashboard.id) %>
+<div class="main-wrapper">
+  <div class="item-wrapper">
+    <h2 class="login-header"><%= @dashboard.title %></h2>
+    <div class="dashboard">
+      <div class="body-wrapper">
+        <div class="panel-content">
+          <%= @dashboard.body %>
+        </div>
+        <div class="chart-wrapper">
+          <%= pie_chart Dashboard::DUMMY_CHART_DATA,
+                        colors: ["rgba(238,174,202,1)", "rgba(148,187,233,1)", "#d0749c"] %>
+        </div>
+        <div class="buttons-wrapper">
+          <%= link_to "Edit", edit_dashboard_path(@dashboard.id), :class =>"btn main-btn green-btn confirm-btn" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<div>
+</div>
+

@@ -3,21 +3,28 @@
     <h2 class="welcome-header login-header">Your dashboards:</h2>
     <% if @dashboards.any? %>
       <div class="dashboards-wrapper">
-        <% @dashboards.each_with_index do |item, index| %>
-          <div class="panel panel-success">
-            <h2 class="panel-heading"><%= index + 1 %>. <%= item.title %></h2>
-            <div class="panel-body">
-              <div class="panel-content"><%= truncate(item.body, length: 35) %>
-                <span class="show-dashboard"></span>
-                <%=link_to (fa_icon "arrow-right", :class => "icon"), dashboard_path(item["id"])%>
-              </div>
-              <hr>
-              <div class="">
-                <%=link_to "Delete", dashboard_path(item["id"]), :class => "btn main-btn delete-btn",   :method => :delete %>
-              </div>
-            </div>
-          </div>
-        <% end %>
+        <table>
+          <tbody class="sortable">  <!-- sortable target -->
+          <% @dashboards.each_with_sortable_id do |item, sortable_id| %>
+            <tr id="<%= sortable_id %>">  <!-- Needs id tag on sorting elements -->
+              <td>
+                <div class="panel panel-success">
+                  <h2 class="panel-heading"><%= item.sort + 1 %>. <%= item.title %></h2>
+                  <div class="panel-body">
+                    <div class="panel-content"><%= truncate(item.body, length: 35) %>
+                      <%=link_to (fa_icon "arrow-right", :class => "icon"), dashboard_path(item["id"])%>
+                    </div>
+                    <hr>
+                    <div class="">
+                      <%=link_to "Delete", dashboard_path(item["id"]), :class => "btn main-btn delete-btn",   :method => :delete %>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
     <% end %>
     <div>
       <% if @dashboards.empty? %>
@@ -28,3 +35,12 @@
     </div>
   </div>
 </div>
+
+
+
+
+<script type="text/javascript">
+    $(function() {
+        $('.sortable').railsSortable();
+    });
+</script>
