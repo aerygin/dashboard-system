@@ -19,10 +19,12 @@
                              autocomplete: "new-password", :class => "form-control" %>
       </p>
 
-      <p>
-        <%= f.submit "Sign up", :class => "main-btn green-btn confirm-btn" %>
-      </p>
+      <div class="buttons-wrapper-with-back-btn">
+        <div>
+          <%= f.submit "Sign up", :class => "main-btn green-btn confirm-btn" %>
+        </div>
+        <%= link_to "Back", root_path, :class => "btn main-btn main-back-btn" %>
+      </div>
     <% end %>
   </div>
 </div>
-

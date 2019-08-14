@@ -1,22 +1,23 @@
 <div class="main-wrapper">
-  <div class="item-wrapper">
-    <h2 class="login-header"><%= @dashboard.title %></h2>
-    <div class="dashboard">
-      <div class="body-wrapper">
-        <div class="panel-content">
-          <%= @dashboard.body %>
-        </div>
-        <div class="chart-wrapper">
-          <%= pie_chart Dashboard::DUMMY_CHART_DATA,
-                        colors: ["rgba(238,174,202,1)", "rgba(148,187,233,1)", "#d0749c"] %>
-        </div>
-        <div class="buttons-wrapper">
-          <%= link_to "Edit", edit_dashboard_path(@dashboard.id), :class =>"btn main-btn green-btn confirm-btn" %>
-        </div>
-      </div>
+  <div class="item-wrapper dashboard">
+    <div class="header">
+      <h2><%= @dashboard.title %></h2>
     </div>
+    <div style="margin-top: 30px;text-align: center" class="panel-content">
+      <%= @dashboard.body %>
+      <hr>
+    </div>
+    <div class="chart-wrapper">
+      <%= pie_chart Dashboard::DUMMY_CHART_DATA,
+                    colors: ["rgba(238,174,202,1)", "rgba(148,187,233,1)", "#d0749c"] %>
+    </div>
+    <div class="dashboard-btns-wrapper buttons-wrapper-with-back-btn">
+      <div>
+        <%= link_to "Edit", edit_dashboard_path(@dashboard.id), :class => " btn main-btn green-btn confirm-btn" %>
+      </div>
+      <%= link_to "Back", dashboards_path, :class => "btn main-btn main-back-btn" %>
+    </div>
+
   </div>
-</div>
-<div>
 </div>
 

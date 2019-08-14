@@ -15,9 +15,12 @@
       <p>
         <%=f.text_area :body, rows: 20 ,placeholder: :body ,:class => "form-control"%>
       </p>
-      <p>
+      <div class="buttons-wrapper-with-back-btn">
+        <div>
         <%= f.submit "Save", :class => "main-btn green-btn confirm-btn" %>
-      </p>
+        </div>
+        <%= link_to "Back", dashboards_path, :class => "btn main-btn main-back-btn" %>
+      </div>
     <% end %>
   </div>
 </div>

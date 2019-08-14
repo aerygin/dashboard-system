@@ -1,42 +1,47 @@
+<% if @dashboards.any? %>
 <div class="wrapper">
-  <div class="item-wrapper">
+  <div class="show-dashboards-wrapper">
     <h2 class="welcome-header login-header">Your dashboards:</h2>
-    <% if @dashboards.any? %>
-      <div class="dashboards-wrapper">
-        <table>
-          <tbody class="sortable">  <!-- sortable target -->
-          <% @dashboards.each_with_sortable_id do |item, sortable_id| %>
-            <tr id="<%= sortable_id %>">  <!-- Needs id tag on sorting elements -->
-              <td>
-                <div class="panel panel-success">
-                  <h2 class="panel-heading"><%= item.sort + 1 %>. <%= item.title %></h2>
-                  <div class="panel-body">
-                    <div class="panel-content"><%= truncate(item.body, length: 35) %>
-                      <%=link_to (fa_icon "arrow-right", :class => "icon"), dashboard_path(item["id"])%>
-                    </div>
-                    <hr>
-                    <div class="">
-                      <%=link_to "Delete", dashboard_path(item["id"]), :class => "btn main-btn delete-btn",   :method => :delete %>
-                    </div>
-                  </div>
+    <table>
+      <tbody class="sortable">
+      <% @dashboards.each_with_sortable_id do |item, sortable_id| %>
+        <tr id="<%= sortable_id %>">
+          <td>
+            <div class="panel panel-success">
+              <div class="panel-header">
+                <h2 class="panel-heading">
+                  <%= @dashboards[0].sort == 0 ? item.sort + 1 : item.sort %>. <%= item.title %></h2>
+                  <%= link_to (fa_icon "times", :class => "icon delete-icon"),
+                            dashboard_path(item["id"]), :class => "", :method => :delete %>
+              </div>
+              <hr>
+              <div class="panel-body">
+                <div class="panel-content"><%= truncate(item.body, length: 25) %>
+                  <%= link_to (fa_icon "arrow-right", :class => "icon show-icon"), dashboard_path(item["id"]) %>
                 </div>
-              </td>
-            </tr>
-          <% end %>
-          </tbody>
-        </table>
-    <% end %>
-    <div>
-      <% if @dashboards.empty? %>
-        <h4  style="margin-top: 150px" class="login-header">You have no dashboards yet.</h4>
+              </div>
+            </div>
+          </td>
+        </tr>
       <% end %>
-      <%=link_to "Add new dashboard", new_dashboard_path, :class => "btn main-btn green-btn confirm-btn" %>
-    </div>
+      </tbody>
+    </table>
+    <div class="add-new">
+      <%= link_to "Add new dashboard", new_dashboard_path, :class => "btn main-btn green-btn confirm-btn" %>
     </div>
   </div>
 </div>
+<% end %>
 
 
+<% if @dashboards.empty? %>
+  <div class="main-wrapper">
+    <div class="item-wrapper">
+      <h2 style="margin-bottom: 30px" class="login-header">You have no dashboards yet!</h2>
+      <%= link_to "Add new dashboard", new_dashboard_path, :class => "btn main-btn green-btn confirm-btn" %>
+    </div>
+  </div>
+<% end %>
 
 
 <script type="text/javascript">
