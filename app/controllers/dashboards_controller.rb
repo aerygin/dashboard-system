@@ -1,4 +1,6 @@
 class DashboardsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @dashboards = Dashboard.where(user_id: current_user.id).order(:sort)
   end
@@ -8,11 +10,12 @@ class DashboardsController < ApplicationController
   end
 
   def new
-    @dashboard = current_user.dashboards.build
+   @dashboard = current_user.dashboards.build
   end
 
   def create
-    @dashboard = current_user.dashboards.build(dashboard_params)
+    #    render plain: params[:post].inspect
+    @dashboard = current_user.dashboards.build(dashboard_params_create)
     if @dashboard.save
       redirect_to dashboards_path
     else
@@ -26,7 +29,7 @@ class DashboardsController < ApplicationController
 
   def update
     @dashboard = Dashboard.find(params[:id])
-    @dashboard.update(dashboard_params)
+    @dashboard.update(dashboard_params_uptade)
     if @dashboard.save
       redirect_to dashboard_path
     else
@@ -41,7 +44,12 @@ class DashboardsController < ApplicationController
 
   private
 
-  def dashboard_params
+  def dashboard_params_create
+    dashboard_qnty = current_user.dashboards.count
+    params.require(:dashboard).permit(:title, :body).merge!({sort: dashboard_qnty})
+  end
+
+  def dashboard_params_uptade
     params.require(:dashboard).permit(:title, :body)
   end
 end
