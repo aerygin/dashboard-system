@@ -3,11 +3,13 @@
     <h2 class="login-header">Create dashboard</h2>
     <%= form_for :dashboard, url: dashboards_path do |f| %>
       <% if @dashboard.errors.any? %>
+        <div style="margin-top: 100px">
         <% @dashboard.errors.full_messages.each do |msg| %>
           <div class="alert alert-danger">
             <%= msg %>
           </div>
         <% end %>
+        </div>
       <% end %>
       <p>
         <%=f.text_field :title, placeholder: :title, :class => "form-control" %>

@@ -1,0 +1,66 @@
+{
+  "MiniTest": {
+    "coverage": {
+      "/home/artjomj/rgames/test/controllers/pages_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/artjomj/rgames/test/models/dashboard_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/artjomj/rgames/test/models/user_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1565785516
+  },
+  "RSpec": {
+    "coverage": {
+      "/home/artjomj/rgames/test/controllers/pages_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/artjomj/rgames/test/models/dashboard_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/artjomj/rgames/test/models/user_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1565789763
+  }
+}
